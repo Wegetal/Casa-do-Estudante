@@ -80,6 +80,7 @@ background-position:bottom;
   font-size: 36px;
   font-weight: bold;
   text-decoration:none;
+  font-family: 'Stoke', serif;
 }
 .area-post{
     width: 100%;
@@ -343,6 +344,7 @@ margin: 0;
 
 .cover-heading{
   font-size: 40px;
+  font-family: 'Stoke', serif;
 }
 .ab-bar{
   position: fixed;
