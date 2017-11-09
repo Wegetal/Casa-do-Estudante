@@ -80,7 +80,6 @@ background-position:bottom;
   font-size: 36px;
   font-weight: bold;
   text-decoration:none;
-  font-family: 'Stoke', serif;
 }
 .area-post{
     width: 100%;
@@ -251,12 +250,16 @@ margin: 0;
     width: 100%; /* Must be percentage or pixels for horizontal alignment */
   }
 }
-.ico{
-  display: block;
-  margin-top: 1em;
+.ico {
+  color: white !important;
+  text-decoration: none;
   margin-bottom: 1em;
   margin-left: 0;
   margin-right: 0;
+}
+
+a{
+  text-decoration: none;
 }
 .icons{
   list-style-type: none;
@@ -344,7 +347,6 @@ margin: 0;
 
 .cover-heading{
   font-size: 40px;
-  font-family: 'Stoke', serif;
 }
 .ab-bar{
   position: fixed;
@@ -402,4 +404,3 @@ margin: 0;
 
 
 }
-
