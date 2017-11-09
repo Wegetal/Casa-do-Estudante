@@ -37,6 +37,7 @@
                 <ul class="nav masthead-nav">
                   <li class="active"><input class="search" type="text" name="search" placeholder="Search.."></li>
                   <li><div id="Signin"ng-show="visib_in" class="g-signin2" ng-click="myFunc()" data-onsuccess="onSignIn"></div></li>
+                  <li><img id="prfl" ng-style="myPrfl"> </li>
                   <li> <a id="Signout" ng-show="visib_out" href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/">Sign out</a><li>
                 </ul>
               </nav>
@@ -107,6 +108,14 @@ $scope.perguntar = function () {
     $scope.visib_in=false;
     $scope.$apply();
   }
+  $scope.imglgn = function (src) {
+	//alert("top"+src)
+	$scope.myPrfl={'background-image':'url('+src+')'
+
+                  }
+	$scope.$apply();
+
+}
 
 });
 
@@ -127,13 +136,13 @@ $scope.perguntar = function () {
   console.log('Name: ' + profile.getName());
   console.log('Image URL: ' + profile.getImageUrl());
 
+  angular.element(document.getElementById('prfl')).scope().imglgn(profile.getImageUrl());
 
 
 
   var id_token = googleUser.getAuthResponse().id_token;
           console.log("ID Token: " + id_token);
     angular.element(document.getElementById('Signout')).scope().ChangeVisibBut();
-
 
 }
 
