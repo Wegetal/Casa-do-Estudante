@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+<link href="https://fonts.googleapis.com/css?family=Stoke" rel="stylesheet">
+    <link rel="icon" href="/casadoestudante.png">
+
+    <title>Casa do Estudante</title>
+
+
+
+<meta name="google-signin-scope" content="profile email">
+
+      <meta name="google-signin-client_id" content="857643865010-scrdndcmd5p7c2l1eb16nmds469fobks.apps.googleusercontent.com">
+
+
+    <link href="cover.css" rel="stylesheet">
+  </head>
+   <script src="https://apis.google.com/js/platform.js"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js'></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+  <body ng-app="myApp" ng-controller="myCtrl" >
+
+    <div class="site-wrapper" ng-style="myStyle">
+
+      <div class="site-wrapper-inner">
+        <div class="masthead clearfix">
+          <div  class="inner">
+              <a  href="#/!" class="masthead-brand" ng-click="fundo('fundo')">Casa do Estudante</a>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><input class="search" type="text" name="search" placeholder="Search.."></li>
+                  <li><div id="Signin"ng-show="visib_in" class="g-signin2" ng-click="myFunc()" data-onsuccess="onSignIn"></div></li>
+                  <li> <a id="Signout" ng-show="visib_out" href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/">Sign out</a><li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        <div ng-view class="cover-container">
+        </div>
+
+      </div>
+
+    </div>
+  </body>
+
+<script>
+  var myApp = angular.module('myApp', ["ngRoute"]);
+   myApp.controller('myCtrl', function($scope , $http) {
+ $scope.visib_out = false;
+$scope.visib_in=true;
+$scope.fundo= function(src) {
+console.log(src);
+$scope.tela=false;
+  $scope.count = 0;
+var myAccess = [];
+  var array = [];
+  $http.get("categoria.php?cat="+src)
+  .then(function (response) {
+$scope.categoria = response.data;
+$scope.id_cat=$scope.categoria[0]['id_cat']
+console.log($scope.id_cat+" aqqq");
+$http.get("oii.php?id_cat="+$scope.id_cat)
+.then(function (response) {
+  $scope.posts = response.data;
+  console.log($scope.posts.length);
+//  while($scope.count<$scope.posts.length){
+    $scope.id_user=$scope.posts[$scope.count]['id_user'];
+  $http.get("teste.php?id_user="+$scope.id_user)
+  .then(function (response) {
+
+    $scope.users = response.data;
+    myAccess.push($scope.users)
+    array.push(myAccess[$scope.count])
+    console.log(array[$scope.count])
+
+    $scope.users=myAccess;
+
+}
+)
+  $scope.count++;
+  console.log($scope.users)
+})});
+
+if(src!="fundo"){
+$scope.myStyle={'background-image':'url('+src+'.png)',
+                'background-size':'cover'}
+
+}else{
+  $scope.myStyle={'background-image':'url('+src+'.png)',
+                  'background-size':'bottom'}
+
+}}
+$scope.perguntar = function () {
+  $scope.tela=true;
+
+}
+  $scope.ChangeVisibBut = function(){
+
+    $scope.visib_out = !$scope.visib_out;
+    $scope.visib_in=false;
+    $scope.$apply();
+  }
+
+});
+
+    myApp.config(function($routeProvider) {
+    $routeProvider.when("/", {
+        templateUrl : "main.html"
+    })
+    .when("/forum", {
+
+        templateUrl : "forum.html"
+
+
+    })
+});
+       function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: é o ids ' + profile.getId());
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+
+
+
+
+  var id_token = googleUser.getAuthResponse().id_token;
+          console.log("ID Token: " + id_token);
+    angular.element(document.getElementById('Signout')).scope().ChangeVisibBut();
+
+
+}
+
+
+
+
+
+  </script>
+ <script>
+
+
+    </script>
+
+
+
+
+
+
+
+</html>
