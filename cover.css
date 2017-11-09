@@ -76,11 +76,11 @@ background-position:bottom;
     float: right;
   }
 }
-.masthead-brand
-font-family: 'Stoke', serif;
+.masthead-brand{
   font-size: 36px;
   font-weight: bold;
-  text-decoration:none;
+  text-decoration:none; 
+  font-family: 'Stoke', serif;
 }
 .area-post{
     width: 100%;
