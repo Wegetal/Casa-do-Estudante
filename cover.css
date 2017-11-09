@@ -76,7 +76,8 @@ background-position:bottom;
     float: right;
   }
 }
-.masthead-brand{
+.masthead-brand
+font-family: 'Stoke', serif;
   font-size: 36px;
   font-weight: bold;
   text-decoration:none;
@@ -346,6 +347,7 @@ a{
 }
 
 .cover-heading{
+  font-family: 'Stoke', serif;
   font-size: 40px;
 }
 .ab-bar{
