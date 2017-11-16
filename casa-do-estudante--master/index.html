@@ -59,6 +59,7 @@ $scope.visib_in=true;
 $scope.fundo= function(src) {
 console.log(src);
 $scope.tela=false;
+$scope.but=true;
   $scope.count = 0;
 var myAccess = [];
   var array = [];
@@ -100,6 +101,7 @@ $scope.myStyle={'background-image':'url('+src+'.png)',
 }}
 $scope.perguntar = function () {
   $scope.tela=true;
+  $scope.but=false;
 
 }
   $scope.ChangeVisibBut = function(){
