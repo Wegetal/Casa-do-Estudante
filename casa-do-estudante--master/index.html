@@ -11,7 +11,7 @@
     	<link href="https://fonts.googleapis.com/css?family=Stoke" rel="stylesheet">
     	<link rel="icon" href="/casadoestudante.png">
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="bootstrap.min.js"></script>	  
+	    <script src="bootstrap.min.js"></script>
 
     <title>Casa do Estudante</title>
 
@@ -40,8 +40,17 @@
                 <ul class="nav masthead-nav">
                   <li class="active"><input class="search" type="text" name="search" placeholder="Search.."></li>
                   <li><div id="Signin"ng-show="visib_in" class="g-signin2" ng-click="myFunc()" data-onsuccess="onSignIn"></div></li>
-                  <li><img id="prfl" ng-style="myPrfl"> </li>
-                  <li> <a id="Signout" ng-show="visib_out" href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/">Sign out</a><li>
+                  <li><div class="dropdown">
+                        <div ng-show="visib_out" class="opt-user dropdown-toggle" data-toggle="dropdown" title="options"> </div>
+                          <ul class="dropdown-menu">
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#"></a></li>
+                            <li><a id="Signout" ng-show="visib_out" href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/">Sair</a></li>
+                          </ul>
+                        </div>
+                  </li>
+                  <li><img id="prfl" ng-show="visib_out"  ng-style="myPrfl"> </li>
+
                 </ul>
               </nav>
             </div>
@@ -184,7 +193,7 @@ $(document).ready(function(){
 
 
 	</script>
-	
+
 
 
 

@@ -273,6 +273,8 @@ background-position:bottom;
 	margin: 0px;
 	position: relative;
 	top: 15px;
+  border: none;
+
 
 }
 
@@ -384,7 +386,7 @@ a{
 
     border: none;
     border-radius: 50px;
-    height: 14px;
+    height: 30px;
     line-height: 25px;
     font-size: 14px;
     background-color: white;
@@ -441,17 +443,20 @@ a{
   border-radius: 5px;
   background-image: none;
   position: fixed;
-  right: 8px;
+  right: 20px;
   top: 26%;
   float: left;
   width: 250px;
   padding-top: 10px;
-  height: 400px;
+  height: 450px;
+
+
   background: rgba(255, 255, 255, 0.5);
 
 }
 .ab-bar:hover h3,p{
   color: black;
+  margin: 10px;
   visibility:visible;
 
 
@@ -460,5 +465,29 @@ a{
   color: black;
   visibility:visible;
 
+
+}
+
+.opt-user{
+  position: relative !important;
+  background-image: url('seta.png');
+  background-size: 15px 15px;
+  background-position: center;
+  background-repeat: no-repeat;
+  right: 20px;
+  top: 12px !important;
+  float: left;
+  width: 30px;
+
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  -webkit-transition:  1.0s ease;
+  transition:  1.0s ease;
+}
+
+
+.dropdown-menu{
+background-color: rgba(255, 255, 255, 0.8);
 
 }
