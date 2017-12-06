@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Casa Do Estudante</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+
+  <meta name="google-signin-scope" content="profile email">
+  <script src="https://apis.google.com/js/platform.js"></script>
+  <meta name="google-signin-client_id" content="857643865010-scrdndcmd5p7c2l1eb16nmds469fobks.apps.googleusercontent.com">
+  <!-- Bulma Version 0.6.0 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.min.css" integrity="sha256-HEtF7HLJZSC3Le1HcsWbz1hDYFPZCqDhZa9QsCgVUdw=" crossorigin="anonymous" />
+  <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+  <script type="text/javascript" src="/novo/JS/myApp.js"></script>
+  <script type="text/javascript" src="/novo/JS/MainController.js"></script>
+  <link rel="stylesheet" href="/Styling/Style.css"/>
+
+  <link href="https://fonts.googleapis.com/css?family=Stoke" rel="stylesheet">
+
+</head>
+<body>
+  <section id="hero" class="hero is-boxed is-fullheight is-bold" ng-style="myStyle"ng-app="myApp" ng-controller="myCtrl">
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+                <a id="logo" class="navbar-item is-transparent" style="font-size:26px">
+                  <span role="text" >
+                    <h1>&nbsp Casa do Estudante</h1>
+                  </span>
+
+                </a>
+
+                <span id="burger" class="navbar-burger burger" data-target="navbard">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </span>
+              </div>
+              <div  id="navbar-menu" class="navbar-menu">
+                <div  class="navbar-end">
+                  <a id="home" role="text" class="navbar-item" style="font-size:18px" >
+                    Inicio
+                  </a>
+                  <a role="iconarea" ng-show="visib_out" class="navbar-item ">
+
+                    <span class="icon" style="font-size:20px">
+                    <i class="fa fa-th-large" aria-hidden="true"></i>
+                    </span>
+
+                  </a>
+                  <a role="iconarea" ng-show="visib_out" class="navbar-item">
+                    <span class="icon" style="font-size:20px">
+                    <i class="fa fa-comments-o" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                  <div class="navbar-item has-dropdown is-hoverable">
+                  <a role="iconarea" ng-show="visib_out" class="navbar-item">
+
+                    <span class="icon" style="font-size:20px">
+                    <i class="fa fa-cog" aria-hidden="true"></i>
+                  </span> </a>
+<div class="navbar-dropdown is-hoverable">&nbsp&nbsp&nbsp
+              <a id="Signout"  href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/novo/Index.html">Sair</a>
+</div>
+            </div>
+
+                    </a>
+                  <a id="Signin" class="navbar-item">
+                    <div id="Signin" ng-show="visib_in" class="g-signin2" ng-click="myFunc()" data-onsuccess="onSignIn"></div>
+                    </a>
+
+
+            </div>
+</div>
+
+        </div></nav></div>
+
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title is-unselectable" role="text">
+        Compartilhe Conhecimento !
+      </h1>
+    </div>
+  </div>
+  <div class="hero-foot"  >
+   <nav class="tabs is-boxed is-fullwidth">
+     <div class="container">
+       <div class="control is-centered">
+       <ul class="list">
+         <li role="choices"><a role="text">Feed</a></li>
+         <li role="choices"><a role="text">Perguntar</a></li>
+         <li role="choices"><a role="text">Responder</a></li>
+         <li role="choices"><a role="text">Suas Perguntas</a></li>
+         <li role="choices"><a role="text">Ranking</a></label></li>
+         <li role="choices"><a role="text">Conquistas</a></li>
+       </ul>
+     </div>
+   </div>
+   </nav>
+ </div>
+</section>
+</body>

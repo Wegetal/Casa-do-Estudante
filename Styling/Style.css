@@ -1,0 +1,59 @@
+#navgbar{
+  background-color: rgba(0, 0, 0, 0.0) !important;
+  position: fixed;
+  top:0;
+  right:0;
+  left: 0;
+}
+#signout{
+  text-decoration: none;
+  color: black;
+}
+body{
+  background-color: #000 !important;
+
+}
+.icon{
+  color: white!important;
+}
+[role=iconarea]:hover > span{
+  color: black!important;
+}
+
+h1{
+  font-family: "Stoke", serif;
+  font-weight: bold;
+}
+[role=text] {
+  color: white !important;
+}[role=choices]:hover > a{
+  color: black !important;
+}
+[role=choices]:hover > a{
+  background-color: #fff !important;
+}
+#home:hover{
+  color: black !important;
+}
+
+ input[type="radio"]:checked + label a{
+  color: black !important;
+  background-color: #fff;
+}
+
+#logo:hover{
+  background-color: rgba(0, 0, 0, 0.0) !important;
+}
+
+#Signin:hover{
+  background-color: rgba(0, 0, 0, 0.0) !important;
+}
+#hero{
+background-image: url(fundo.png);
+background-position:bottom;
+
+}
+#logoimg{
+    background-position: 10px 6px !important;
+    background-image: url(/Styling/casadoestudante.png);
+}
