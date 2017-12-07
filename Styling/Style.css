@@ -9,15 +9,34 @@
   text-decoration: none;
   color: black;
 }
+html,
+body {
+    height: 100vh;
+}
 body{
+
   background-color: #000 !important;
 
 }
+#search{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+[role=icon]{
+  color: black!important;
+}
+[role=icon]:hover{
+  color: blue!important;
+}
 .icon{
-  color: white!important;
+  color: white;
 }
 [role=iconarea]:hover > span{
   color: black!important;
+}
+#submit{
+  height: 16px;
+  
 }
 
 h1{
@@ -32,15 +51,31 @@ h1{
 [role=choices]:hover > a{
   background-color: #fff !important;
 }
+#background{
+
+  height: 100%!important;
+}
 #home:hover{
   color: black !important;
 }
 
- input[type="radio"]:checked + label a{
-  color: black !important;
-  background-color: #fff;
-}
 
+#body{
+  height: 80%;
+}
+#fastresp{
+  height: 16px;
+  font-size: 10px;
+  width: 200px;
+}
+#hero{
+  height: 100%!important;
+  margin:auto;
+  width: 100%!important;
+}
+#body1{
+  height: 90%;
+}
 #logo:hover{
   background-color: rgba(0, 0, 0, 0.0) !important;
 }
@@ -49,11 +84,21 @@ h1{
   background-color: rgba(0, 0, 0, 0.0) !important;
 }
 #hero{
-background-image: url(fundo.png);
+background-image: url(/novo/Res/fundo.png);
 background-position:bottom;
 
 }
 #logoimg{
     background-position: 10px 6px !important;
-    background-image: url(/Styling/casadoestudante.png);
+    background-image: url(novo/Res/casadoestudante.png);
+}
+#feedfundo{
+  height: 100%!important;
+  width: 100% !important;
+  margin:0px;
+  background-color:#fff;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
 }

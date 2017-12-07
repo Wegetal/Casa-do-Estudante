@@ -17,7 +17,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
   <script type="text/javascript" src="/novo/JS/myApp.js"></script>
   <script type="text/javascript" src="/novo/JS/MainController.js"></script>
-  <link rel="stylesheet" href="/Styling/Style.css"/>
+  <script type="text/javascript" src="/novo/JS/Config.js"></script>
+  <link rel="stylesheet" href="Styling/Style.css"/>
 
   <link href="https://fonts.googleapis.com/css?family=Stoke" rel="stylesheet">
 
@@ -28,12 +29,12 @@
     <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
-                <a id="logo" class="navbar-item is-transparent" style="font-size:26px">
+                <label id="logo" class="navbar-item is-transparent" style="font-size:26px">
                   <span role="text" >
                     <h1>&nbsp Casa do Estudante</h1>
                   </span>
 
-                </a>
+                </label>
 
                 <span id="burger" class="navbar-burger burger" data-target="navbard">
                   <span></span>
@@ -43,7 +44,7 @@
               </div>
               <div  id="navbar-menu" class="navbar-menu">
                 <div  class="navbar-end">
-                  <a id="home" role="text" class="navbar-item" style="font-size:18px" >
+                  <a href="#/!" id="home" role="text" class="navbar-item" style="font-size:18px" >
                     Inicio
                   </a>
                   <a role="iconarea" ng-show="visib_out" class="navbar-item ">
@@ -80,8 +81,8 @@
 
         </div></nav></div>
 
-  <div class="hero-body">
-    <div class="container has-text-centered">
+  <div  class="hero-body" id="body">
+    <div id="body1" ng-view class="container has-text-centered ">
       <h1 class="title is-unselectable" role="text">
         Compartilhe Conhecimento !
       </h1>
@@ -92,7 +93,7 @@
      <div class="container">
        <div class="control is-centered">
        <ul class="list">
-         <li role="choices"><a role="text">Feed</a></li>
+         <li role="choices"><a href="#!feed"  role="text">Feed</a></li>
          <li role="choices"><a role="text">Perguntar</a></li>
          <li role="choices"><a role="text">Responder</a></li>
          <li role="choices"><a role="text">Suas Perguntas</a></li>
