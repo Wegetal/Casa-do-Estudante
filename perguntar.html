@@ -1,0 +1,85 @@
+<div class="box" id="background">
+
+  <nav class="tabs is-boxed" id="categorianav">
+    <label class="label">Categoria: </label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+
+
+  <div class="control">
+    <div class="container">
+      <div class="control is-centered">
+      <ul class="list" id="opt">
+        <li>
+    <input ng-model="categoria"type="radio" id="fisica" name="categoria" ng-value="1">
+
+    <label for="fisica"><img role="categoriasico" src="Res/fisica.png"/><br>&nbspFísica</label>&nbsp&nbsp&nbsp
+  </li>
+
+  <li>
+    <input ng-model="categoria" type="radio" id="matematica" name="categoria" ng-value="2">
+
+    <label for="matematica">&nbsp&nbsp&nbsp&nbsp&nbsp<img role="categoriasico" src="Res/mat.png"/><br>&nbspMatemática</label>&nbsp&nbsp&nbsp
+
+
+  </li>
+
+  <li>
+    <input ng-model="categoria" type="radio" id="geografia" name="categoria" ng-value="3">
+
+    <label for="geografia">&nbsp&nbsp&nbsp<img role="categoriasico" src="Res/geografia.png"/><br>&nbspGeografia</label>
+
+
+  </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+</nav>
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label">Título</label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <input class="input" type="text" ng-model="titulo" placeholder="Título da Pergunta...">
+        </div>
+        <p class="help is-danger">
+          Campos Obrigatório
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="field is-horizontal">
+    <div class="field-label is-normal">
+      <label class="label"></label>
+    </div>
+    <div class="field-body">
+      <div class="field">
+        <div class="control">
+          <textarea ng-model="conteudo" class="textarea" placeholder="Explique sua dúvida"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="field is-horizontal">
+  <div class="field-label">
+    <!-- Left empty for spacing -->
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary" ng-click="insert">
+          Enviar Pergunta
+        </button>
+        <p ng-show="stat"class="help is-succes">
+          Pergunta postada com sucesso!.
+        </p>
+        <p ng-show="stat"class="help is-danger">
+          Infelizmente houve algum erro :(
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,10 +18,7 @@ body{
   background-color: #000 !important;
 
 }
-#search{
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
-}
+
 [role=icon]{
   color: black!important;
 }
@@ -31,14 +28,17 @@ body{
 .icon{
   color: white;
 }
+
 [role=iconarea]:hover > span{
   color: black!important;
 }
 #submit{
   height: 16px;
-  
-}
 
+}
+input[type="radio"]{
+  display: none;
+}
 h1{
   font-family: "Stoke", serif;
   font-weight: bold;
@@ -53,13 +53,28 @@ h1{
 }
 #background{
 
-  height: 100%!important;
+  height: 400px;
 }
 #home:hover{
   color: black !important;
 }
+#categorianav{
+  overflow: hidden;
+}
+[role=categoriasico]{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+#opt input:checked + label{
+  color: #00FF00;
+}
+#pic{
+  height: 25px;
+  width: 25px;
 
-
+}
+}
 #body{
   height: 80%;
 }

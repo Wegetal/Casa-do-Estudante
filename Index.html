@@ -54,23 +54,34 @@
                     </span>
 
                   </a>
+
                   <a role="iconarea" ng-show="visib_out" class="navbar-item">
                     <span class="icon" style="font-size:20px">
                     <i class="fa fa-comments-o" aria-hidden="true"></i>
                     </span>
                   </a>
                   <div class="navbar-item has-dropdown is-hoverable">
+
+
                   <a role="iconarea" ng-show="visib_out" class="navbar-item">
 
                     <span class="icon" style="font-size:20px">
                     <i class="fa fa-cog" aria-hidden="true"></i>
                   </span> </a>
+
 <div class="navbar-dropdown is-hoverable">&nbsp&nbsp&nbsp
+
               <a id="Signout"  href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/novo/Index.html">Sair</a>
 </div>
             </div>
 
-                    </a>
+            <label id="name" class="navbar-item" ng-model="nome" style="color: white">{{nome}}</label>
+            <label ng-show="visib_out" class="navbar-item ">
+
+            <img id="pic" ng-style="userpic"/>
+
+            </label>
+
                   <a id="Signin" class="navbar-item">
                     <div id="Signin" ng-show="visib_in" class="g-signin2" ng-click="myFunc()" data-onsuccess="onSignIn"></div>
                     </a>
@@ -81,24 +92,22 @@
 
         </div></nav></div>
 
-  <div  class="hero-body" id="body">
-    <div id="body1" ng-view class="container has-text-centered ">
-      <h1 class="title is-unselectable" role="text">
-        Compartilhe Conhecimento !
-      </h1>
+  <div  class="hero-body">
+    <div  ng-view class="container has-text-centered ">
+
     </div>
   </div>
-  <div class="hero-foot"  >
-   <nav class="tabs is-boxed is-fullwidth">
+  <div class="hero-foot" >
+   <nav ng-show="footer" class="tabs is-boxed is-fullwidth">
      <div class="container">
        <div class="control is-centered">
        <ul class="list">
          <li role="choices"><a href="#!feed"  role="text">Feed</a></li>
-         <li role="choices"><a role="text">Perguntar</a></li>
-         <li role="choices"><a role="text">Responder</a></li>
-         <li role="choices"><a role="text">Suas Perguntas</a></li>
-         <li role="choices"><a role="text">Ranking</a></label></li>
-         <li role="choices"><a role="text">Conquistas</a></li>
+         <li role="choices"><a href="#!perguntar"role="text">Perguntar</a></li>
+         <li role="choices"><a href="#!responder"role="text">Responder</a></li>
+         <li role="choices"><a href="#!feed"role="text">Suas Perguntas</a></li>
+         <li role="choices"><a href="#!feed"role="text">Ranking</a></label></li>
+         <li role="choices"><a href="#!feed"role="text">Conquistas</a></li>
        </ul>
      </div>
    </div>
