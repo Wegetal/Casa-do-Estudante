@@ -4,13 +4,28 @@ templateUrl : "/novo/title.html"
 })
 .when("/feed", {
 
-    templateUrl : "/novo/feed.html"
+    templateUrl : "feed.html"
+
+
+})
+.when("/suasperguntas", {
+
+    templateUrl : "suasperguntas.html",
+    controller     : 'myCtrl',
 
 
 })
 .when("/perguntar", {
 
-    templateUrl : "/novo/perguntar.html"
+    templateUrl : "perguntar.html",
+    controller     : 'myCtrl',
+
+
+})
+.when("/responder", {
+
+    templateUrl : "perguntar.html",
+    controller     : 'myCtrl',
 
 
 })

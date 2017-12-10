@@ -1,0 +1,41 @@
+<div class="box" id="background">
+<div class="container"  id="feedfundo">
+  <div  ng-repeat="pergunta in perguntas " class="columns">
+    <div class="column">
+      <article class="media">
+     <div class="media-left">
+       <figure class="image is-64x64">
+         <img id="feedpic"src="{{pergunta.img}}" alt="Image">
+       </figure>
+     </div>
+
+     <div class="media-content">
+       <div class="content">
+         <p>
+           <strong>{{pergunta.post_title}}</strong> <small>- {{pergunta.catname}} -</small><small>{{pergunta.hora}}</small>
+           <br>
+
+          {{pergunta.post_count}}
+         </p>
+       </div>
+       <nav class="level is-mobile">
+         <div class="level-left"></div>
+         <div class="level-right">
+           <a class="level-item">
+
+        <span  role="icon" class="icon is-small" style="font-size:16px"><i class="fa fa-chevron-down"></i></span>
+        </a>
+         </div>
+       </nav>
+     </div>
+     <div class="media-right">
+ <button class="delete"></button>
+
+     </div>
+
+
+   </article>
+    </div>
+  </div>
+</div>
+</div>

@@ -91,6 +91,9 @@ h1{
 #body1{
   height: 90%;
 }
+#pic{
+  border-radius: 50%;
+}
 #logo:hover{
   background-color: rgba(0, 0, 0, 0.0) !important;
 }
@@ -116,4 +119,7 @@ background-position:bottom;
   overflow-y: auto;
   overflow-x: hidden;
 
+}
+#feedpic{
+  border-radius: 50%;
 }

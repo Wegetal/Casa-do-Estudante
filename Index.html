@@ -18,12 +18,14 @@
   <script type="text/javascript" src="/novo/JS/myApp.js"></script>
   <script type="text/javascript" src="/novo/JS/MainController.js"></script>
   <script type="text/javascript" src="/novo/JS/Config.js"></script>
+  <script type="text/javascript" src="/novo/JS/AskControl.js"></script>
+  <script type="text/javascript" src="/novo/JS/service.js"></script>
   <link rel="stylesheet" href="Styling/Style.css"/>
 
   <link href="https://fonts.googleapis.com/css?family=Stoke" rel="stylesheet">
 
 </head>
-<body>
+<body ng-app="myApp" ng-controller="myCtrl">
   <section id="hero" class="hero is-boxed is-fullheight is-bold" ng-style="myStyle"ng-app="myApp" ng-controller="myCtrl">
   <div class="hero-head">
     <nav class="navbar">
@@ -60,32 +62,26 @@
                     <i class="fa fa-comments-o" aria-hidden="true"></i>
                     </span>
                   </a>
-                  <div class="navbar-item has-dropdown is-hoverable">
 
 
-                  <a role="iconarea" ng-show="visib_out" class="navbar-item">
 
-                    <span class="icon" style="font-size:20px">
-                    <i class="fa fa-cog" aria-hidden="true"></i>
-                  </span> </a>
-
-<div class="navbar-dropdown is-hoverable">&nbsp&nbsp&nbsp
-
-              <a id="Signout"  href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/novo/Index.html">Sair</a>
-</div>
-            </div>
-
-            <label id="name" class="navbar-item" ng-model="nome" style="color: white">{{nome}}</label>
-            <label ng-show="visib_out" class="navbar-item ">
-
-            <img id="pic" ng-style="userpic"/>
-
-            </label>
-
-                  <a id="Signin" class="navbar-item">
-                    <div id="Signin" ng-show="visib_in" class="g-signin2" ng-click="myFunc()" data-onsuccess="onSignIn"></div>
+                  <a id="Signin" ng-show="visib_in"  class="navbar-item">
+                    <div id="Signin" class="g-signin2" ng-click="myFunc()" data-onsuccess="onSignIn"></div>
                     </a>
+                    <div class="navbar-item has-dropdown is-hoverable">
 
+
+                    <a role="iconarea" ng-show="visib_out" class="navbar-item">
+
+                      <span class="icon" style="font-size:20px">
+                    <img id="pic" src="{{userpic}}"/>
+                    </span> </a>
+
+                    <div class="navbar-dropdown is-hoverable">&nbsp&nbsp&nbsp
+
+                    <a id="Signout"  href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost/novo/Index.html">Sair</a>
+                    </div>
+                    </div>
 
             </div>
 </div>
@@ -102,10 +98,10 @@
      <div class="container">
        <div class="control is-centered">
        <ul class="list">
-         <li role="choices"><a href="#!feed"  role="text">Feed</a></li>
-         <li role="choices"><a href="#!perguntar"role="text">Perguntar</a></li>
+         <li role="choices"><a  href="#!feed"  ng-click="feed()"  role="text">Feed</a></li>
+         <li role="choices"><a ng-click="restart()"href="#!perguntar"role="text">Perguntar</a></li>
          <li role="choices"><a href="#!responder"role="text">Responder</a></li>
-         <li role="choices"><a href="#!feed"role="text">Suas Perguntas</a></li>
+         <li role="choices"><a ng-click="suasperguntas()" href="#!suasperguntas"role="text">Suas Perguntas</a></li>
          <li role="choices"><a href="#!feed"role="text">Ranking</a></label></li>
          <li role="choices"><a href="#!feed"role="text">Conquistas</a></li>
        </ul>

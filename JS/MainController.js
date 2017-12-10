@@ -1,24 +1,39 @@
-myApp.controller('myCtrl', function($scope , $http) {
+myApp.controller('myCtrl', function($scope , $http, $route) {
   var login = false;
   $scope.visib_in = true;
-  $scope.profile;
-  $scope.insert = function(){
-    $http.post("/database/insert.php",{'id':profile.getId(), 'titulo':$scope.titulo, 'conteudo':$scope.conteudo, 'categoria': $scope.categoria})
-    		.success(function(){
-    			$scope.stat=true;
-    			$scope.$aplly();
 
-    		})
+
+  $scope.feed = function(){
+
+    $http.get("/novo/Database/feed.php")
+    .then(function (response) {
+
+      $scope.posts = response.data;
+      console.log($scope.posts);
+  });}
+  $scope.suasperguntas = function () {
+    $http.get("/novo/Database/suasperguntas.php?id_user="+$scope.profile.getId())
+    .then(function (response) {
+
+      $scope.perguntas = response.data;
+
+  })
+
+  }
+  $scope.insert = function(){
+    $http.post("/novo/Database/insert.php",{'id':$scope.profile.getId(), 'titulo':$scope.titulo, 'conteudo':$scope.conteudo, 'categoria': $scope.categoria})
+        .then(function(response){
+          $scope.stat=true;
+
+
+        })
 
   }
   $scope.logar = function (status,profile){
     login = status;
     $scope.profile = profile;
-    $scope.userpic={'background-image':'url('+profile.getImageUrl()+')',
-                    'background-size':'cover',
-                    'height':'50px;',
-                    'width':'50px;',
-                    'border-radius':'50%'};
+
+    $scope.userpic=profile.getImageUrl();
     $scope.nome = profile.getName();
   if (login == false){
     $scope.footer = false;
@@ -31,24 +46,34 @@ myApp.controller('myCtrl', function($scope , $http) {
     $scope.visib_in = false;
     $scope.$apply();
   }
-
+  alert(profile.getId());
   $http.post("/novo/Database/insertuser.php",{'id':profile.getId(), 'name':profile.getName(), 'email':profile.getEmail(), 'foto': profile.getImageUrl()})
       .then(function(response){
-        $scope.stat=true;
-      
+
+alert(profile.getEmail());
 
       });
 
 }
 
-  $scope.fastreply = function(){
-    $scope.fastresp = true;
-    $scope.$apply();
+  $scope.replyload = function(id,num,tam){
+    $scope.respostas= [tam]; 
+    $http.get("/novo/Database/respostas.php?id_post="+id)
+    .then(function (response) {
+
+      $scope.respostas[num] = response.data;
+      console.log("ta nulo" + $scope.respostas[num] + "dasda aqii" );
+
+  })
+
+
+
 
   }
-  $scope.fastreplysubmit = function(){
-    $scope.fastresp = false;
-    $scope.$apply();
+  $scope.replysubmit = function(fastanswercontent){
+
+
+
   }
 });
 function onSignIn(googleUser) {
@@ -56,7 +81,7 @@ var profile = googleUser.getBasicProfile();
 console.log('ID: é o ids ' + profile.getId());
 console.log('Name: ' + profile.getName());
 console.log('adadasdadad'+profile.getEmail());
-alert('Image URL: ' + profile.getImageUrl());
+
 if(profile != null){
   angular.element(document.getElementById('hero')).scope().logar(true,profile);
 }

@@ -1,38 +1,72 @@
 
 <div class="box" id="background">
 <div class="container"  id="feedfundo">
-  <div class="columns">
+  <div  ng-repeat="post in posts " class="columns">
     <div class="column">
-      <article ng-repeat="post in posts"class="media">
+      <article class="media">
      <div class="media-left">
        <figure class="image is-64x64">
-         <img src="{{post.img}}" alt="Image">
+         <img id="feedpic"src="{{post.img}}" alt="Image">
        </figure>
      </div>
      <div class="media-content">
        <div class="content">
          <p>
-           <strong>{{post.usuario}}</strong> <small>@{{post.email}}</small> <small>{{post.time}}</small>
+           <strong >{{post.post_title}}</strong> <small>- {{post.catname}} -</small> <small>{{post.nome}}</small> <small>{{post.hora}}</small>
            <br>
-          {{post.conteudo}}
+
+          {{post.post_count}}
          </p>
        </div>
        <nav class="level is-mobile">
          <div class="level-left">
            <a class="level-item">
-             <span role="icon" class="icon is-small"><i class="fa fa-heart"></i></span>
+             <span role="icon" class="icon is-small"><i class="fa fa-star"></i></span>
            </a>
-           <a ng-click="fastreply()"class="level-item">
+           <a ng-click="resp = !resp;replyload(post.id_post,$index,posts.length)"class="level-item">
              <span  role="icon" class="icon is-small"><i class="fa fa-reply"></i></span>&nbsp&nbsp
 
            </a>
-           <a class="level-item">
-           <input class="input"   ng-show="fastresp" id="fastresp" type="text" placeholder="Resposta Rapida..."></a>
-           <a class="level-item">
-             <span  role="icon" ng-click="fastreplysubmit()" ng-show="fastresp" class="icon is-small"  style="font-size:12px"><i class="fa fa-paper-plane" aria-hidden="true"></i><span>
-          </a>
          </div>
        </nav>
+
+       <article ng-repeat="resposta in respostas[$index]"ng-show="resp"  class="media">
+        <figure class="media-left">
+          <p class="image is-48x48">
+            <img id="feedpic" src="{{resposta.img}}">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>{{resposta.nome}}</strong>
+              <br>
+              {{resposta.resp}}
+              <br>
+              <br><small ng-if="resposta.id_melhorresp==resposta.id_resp"><span color="yellow">Escolhida como melhor resposta<span><small>.
+            </p>
+          </div>
+        </div>
+      </article>
+       <article ng-show="resp" class="media">
+      <figure class="media-left">
+        <p class="image is-64x64">
+          <img id="feedpic" src="{{userpic}}">
+        </p>
+      </figure>
+      <div class="media-content">
+        <div class="field">
+          <p class="control">
+            <textarea class="textarea" ng-model="answercontent" placeholder="Resposta..."></textarea>
+          </p>
+        </div>
+        <div class="field">
+          <p class="control">
+            <button ng-click="resp = !resp;fastreplysubmit(answercontent)" class="button">Enviar</button>
+          </p>
+        </div>
+      </div>
+    </article>
      </div>
    </article>
     </div>
