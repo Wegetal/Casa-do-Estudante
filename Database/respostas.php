@@ -2,7 +2,7 @@
 
 include "conexao.php";
 $id=$_GET['id_post'];
-  $query="select * from respostas  inner join usuario on respostas.id_user=usuario.id_user inner join post on respostas.id_post=post.id_post where respostas.id_post='".$id."' order by id_resp=post.id_melhorresp desc;";
+  $query="select * from respostas  inner join usuario on respostas.id_user=usuario.id_user inner join post on respostas.id_post=post.id_post where respostas.id_post='".$id."' order by melhoresp=1 desc;";
 
 $rs=$dbhandle->query($query);
 

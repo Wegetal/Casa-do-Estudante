@@ -30,7 +30,7 @@
          </div>
        </nav>
 
-       <article ng-repeat="resposta in respostas[$index]"ng-show="resp"  class="media">
+       <article ng-repeat="resposta in respostas[$index]" ng-show="resp"  class="media">
         <figure class="media-left">
           <p class="image is-48x48">
             <img id="feedpic" src="{{resposta.img}}">
@@ -43,7 +43,7 @@
               <br>
               {{resposta.resp}}
               <br>
-              <br><small ng-if="resposta.id_melhorresp==resposta.id_resp"><span color="yellow">Escolhida como melhor resposta<span><small>.
+              <small ng-if="resposta.melhoresp=='1'"><br><span style="color:green">Escolhida como melhor resposta</span></small>
             </p>
           </div>
         </div>
@@ -62,7 +62,7 @@
         </div>
         <div class="field">
           <p class="control">
-            <button ng-click="resp = !resp;fastreplysubmit(answercontent)" class="button">Enviar</button>
+            <button ng-click="resp = !resp;replysubmit(answercontent,post.id_post)" class="button">Enviar</button>
           </p>
         </div>
       </div>
