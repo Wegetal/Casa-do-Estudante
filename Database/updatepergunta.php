@@ -1,4 +1,3 @@
-
 <?php
 include "conexao.php";
 $data=file_get_contents("php://input");
@@ -8,11 +7,10 @@ $data=json_decode($data);
 
 
 
-$id_user=$data->id_user;
-$resp=$data->resp;
-$id_post=$data->id_post;
-
-$query="INSERT INTO respostas  VALUES(null,'".$resp."','".$id_user."',$id_post,0,null);";
+$id=$data->id;
+$titulo = $data->titulo;
+$conteudo = $data->conteudo;
+$query="UPDATE post set post_title='".$titulo."', post_count='".$conteudo."' where id_post=$id;";
 
 $dbhandle->query($query);
 //	}

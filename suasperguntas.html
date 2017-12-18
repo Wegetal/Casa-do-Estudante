@@ -12,10 +12,10 @@
      <div class="media-content">
        <div class="content">
          <p>
-           <strong>{{pergunta.post_title}}</strong> <small>- {{pergunta.catname}} -</small><small>{{pergunta.hora}}</small>
+           <strong >{{pergunta.post_title}}</strong> <small>- {{pergunta.catname}} -</small><small>{{pergunta.hora}}</small>
            <br>
 
-          {{pergunta.post_count}}
+          <span >{{pergunta.post_count}}</span>
          </p>
        </div>
        <nav class="level is-mobile">
@@ -23,18 +23,75 @@
          <div class="level-right">
            <a class="level-item">
 
-        <span  role="icon" class="icon is-small" style="font-size:16px"><i class="fa fa-chevron-down"></i></span>
+        <span  role="icon" ng-click="updatearea(pergunta.post_title,pergunta.post_count);resp1 = !resp1"class="icon is-small" style="font-size:16px"><i class="fa fa-pencil-square-o"></i></span>
+        </a>
+           <a class="level-item">
+
+        <span  role="icon" ng-click="replyload(pergunta.id_post,$index,perguntas.length);resp = !resp"class="icon is-small" style="font-size:16px"><i class="fa fa-chevron-down"></i></span>
         </a>
          </div>
        </nav>
+       <article ng-repeat="resposta in respostas[$index]" ng-show="resp"  class="media">
+        <figure class="media-left">
+          <p class="image is-48x48">
+            <img id="feedpic" src="{{resposta.img}}">
+          </p>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>{{resposta.nome}}</strong> <small>{{resposta.resp_hora}}</small>
+              <br>
+              {{resposta.resp}}
+              <br>
+              <small ng-if="resposta.melhoresp=='1'"><br><span style="color:green">Escolhida como melhor resposta</span></small>
+            </p>
+          </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item">
+
+            <span  role="icon" ng-click="favoritar(resposta.id_resp)" id="fav"class="icon is-small" style="font-size:16px"><i class="fa fa-star"></i></span>
+           </a></div>
+            <div class="level-right">
+
+            </div>
+          </nav>
+        </div>
+      </article>
+      <article ng-show="resp1" class="media">
+     <figure class="media-left">
+       <p class="image is-64x64">
+         <img id="feedpic" src="{{userpic}}">
+       </p>
+     </figure>
+     <div class="media-content">
+       <div class="field">
+         <p class="control">
+             <input class="input" type="text" ng-model="updatetitle" placeholder="Título da Pergunta...">
+         </p>
+       </div>
+       <div class="field">
+         <p class="control">
+           <textarea class="textarea" ng-model="updatecontent" placeholder="Explique sua dúvida..."></textarea>
+         </p>
+       </div>
+       <div class="field">
+         <p class="control">
+           <button ng-click="resp1 = !resp1;updatesubmit(updatetitle,updatecontent,pergunta.id_post)" class="button is-primary">Enviar</button>
+         </p>
+       </div>
+     </div>
+   </article>
      </div>
      <div class="media-right">
- <button class="delete" ng-click="deletarPergunta(pergunta.id_post)"></button>
+ <button class="delete" ng-click="deletarPergunta(pergunta.id_post,$index)"></button>
 
      </div>
 
 
    </article>
+
     </div>
   </div>
 </div>

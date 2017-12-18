@@ -1,4 +1,3 @@
-
 <?php
 include "conexao.php";
 $data=file_get_contents("php://input");
@@ -8,11 +7,8 @@ $data=json_decode($data);
 
 
 
-$id_user=$data->id_user;
-$resp=$data->resp;
-$id_post=$data->id_post;
-
-$query="INSERT INTO respostas  VALUES(null,'".$resp."','".$id_user."',$id_post,0,null);";
+$id=$data->id;
+$query="UPDATE respostas set melhoresp=true where id_resp=$id;";
 
 $dbhandle->query($query);
 //	}

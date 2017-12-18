@@ -22,11 +22,10 @@ templateUrl : "/novo/title.html"
 
 
 })
-.when("/responder", {
+.when("/ranking", {
 
-    templateUrl : "perguntar.html",
+    templateUrl : "ranking.html",
     controller     : 'myCtrl',
-
 
 })
 });

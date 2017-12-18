@@ -1,10 +1,23 @@
 myApp.controller('myCtrl', function($scope , $http, $route) {
   var login = false;
   $scope.visib_in = true;
+  $scope.ranking1 = function(){
+    $route.reload();
+    $http.get("/novo/Database/ranking.php")
+    .then(function (response) {
 
+      $scope.ranks = response.data;
+
+  })
+
+  }
+  $scope.restart = function(){
+    $route.reload();
+  }
 
   $scope.feed = function(){
-
+$route.reload();
+$scope.posts = null;
     $http.get("/novo/Database/feed.php")
     .then(function (response) {
 
@@ -12,29 +25,59 @@ myApp.controller('myCtrl', function($scope , $http, $route) {
       console.log($scope.posts);
   });}
   $scope.suasperguntas = function () {
+    $route.reload();
     $http.get("/novo/Database/suasperguntas.php?id_user="+$scope.profile.getId())
     .then(function (response) {
 
       $scope.perguntas = response.data;
 
-  })
-  $scope.deletarPergunta = function(id){
+  })}
+  $scope.updatearea= function(titulo,conteudo){
+    $scope.updatetitle = titulo;
+    $scope.updatecontent = conteudo;
+
+  }
+  $scope.updatesubmit = function(titulo,conteudo,id){
+    $http.post("/novo/Database/updatepergunta.php",{'id':id , 'titulo': titulo , 'conteudo' : conteudo})
+        .then(function(response){
+          $scope.suasperguntas();
+
+
+        })
+  }
+  $scope.favoritar = function(id){
+    $http.post("/novo/Database/favoritar.php",{'id':id})
+        .then(function(response){
+
+
+
+        })
+  }
+  $scope.deletarPergunta = function(id, index){
+
+      $scope.perguntas.splice(index,1);
+
     $http.post("/novo/Database/deletepergunta.php",{'id':id})
         .then(function(response){
-          $scope.stat=true;
-          alert("Sua Pergunta foi excluida com sucesso");
-        window.location = "http://localhost/novo/Index.html";
+
+
+
         })
 
   }
-  }
+
   $scope.insert = function(){
     $http.post("/novo/Database/insert.php",{'id':$scope.profile.getId(), 'titulo':$scope.titulo, 'conteudo':$scope.conteudo, 'categoria': $scope.categoria})
         .then(function(response){
+
           $scope.stat=true;
 
 
         })
+        setTimeout(function(){
+$route.reload();
+
+}, 1000);
 
   }
   $scope.logar = function (status,profile){
@@ -82,7 +125,7 @@ myApp.controller('myCtrl', function($scope , $http, $route) {
   $scope.replysubmit = function(answercontent,id_post){
     $http.post("/novo/Database/insertresp.php",{'id_user':$scope.profile.getId(), 'resp':answercontent, 'id_post':id_post})
         .then(function(response){
-            $replyload();
+            $route.reload();
         });
 
 

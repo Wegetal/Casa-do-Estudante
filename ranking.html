@@ -1,0 +1,23 @@
+<div class="box" id="background">
+<div class="container"  id="feedfundo">
+  <div  ng-repeat="rank in ranks " class="columns">
+    <div class="column">
+      <article class="media">
+     <div class="media-left">
+       <figure class="image is-64x64">
+         <img id="feedpic"src="{{rank.img}}" alt="Image">
+       </figure>
+     </div>
+     <div class="media-content">
+       <div class="content">
+         <p>
+           <strong >{{rank.nome}} </strong><small> - Pontos:</small><span style="font-size: 30px">  {{rank.pontos}}</span>
+           <br>
+         </p>
+       </div>
+     </div>
+   </article>
+    </div>
+  </div>
+</div>
+</div>

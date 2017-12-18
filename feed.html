@@ -23,7 +23,7 @@
            <a class="level-item">
              <span role="icon" class="icon is-small"><i class="fa fa-star"></i></span>
            </a>
-           <a ng-click="resp = !resp;replyload(post.id_post,$index,posts.length)"class="level-item">
+           <a ng-click="replyload(post.id_post,$index,posts.length);resp = !resp"class="level-item">
              <span  role="icon" class="icon is-small"><i class="fa fa-reply"></i></span>&nbsp&nbsp
 
            </a>
@@ -39,7 +39,7 @@
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>{{resposta.nome}}</strong>
+              <strong>{{resposta.nome}}</strong> <small>{{resposta.resp_hora}}</small>
               <br>
               {{resposta.resp}}
               <br>
@@ -62,7 +62,7 @@
         </div>
         <div class="field">
           <p class="control">
-            <button ng-click="resp = !resp;replysubmit(answercontent,post.id_post)" class="button">Enviar</button>
+            <button ng-click="resp = !resp;replysubmit(answercontent,post.id_post)" class="button is-primary">Enviar</button>
           </p>
         </div>
       </div>

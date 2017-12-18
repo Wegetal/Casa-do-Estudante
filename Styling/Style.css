@@ -75,6 +75,11 @@ h1{
 
 }
 }
+#fav:hover{
+  color:blue;
+    
+
+}
 #body{
   height: 80%;
 }
